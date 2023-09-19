@@ -14,7 +14,7 @@
     CREATE TABLE usuarioTienda(
         codigo INT NOT NULL AUTO_INCREMENT,
         nombre VARCHAR(40) NOT NULL,
-        tienda VARCHAR(40) NOT NULL,
+        tienda INT NOT NULL,
         username VARCHAR(25) NOT NULL,
         password VARCHAR(40) NOT NULL,
         email VARCHAR(40) NOT NULL,
@@ -60,6 +60,7 @@
         precioProducto DECIMAL NOT NULL,
         nombreProducto VARCHAR(40) NOT NULL,
         cantidadProducto INT NOT NULL,
+        FOREIGN KEY (codigoPedido) REFERENCES pedidos(codigo),
         PRIMARY KEY(codigo)
         
     );
@@ -67,8 +68,8 @@
     CREATE TABLE incidencia(
         codigo INT NOT NULL AUTO_INCREMENT,
         tienda INT NOT NULL,
-        usuario VARCHAR(25) NOT NULL,   
-        fecha VARCHAR(40) NOT NULL,
+        usuario INT NOT NULL,   
+        fecha DATE NOT NULL,
         detalle VARCHAR(40) NOT NULL,
         estado VARCHAR(40) NOT NULL,
         PRIMARY KEY(codigo)
@@ -78,8 +79,8 @@
     CREATE TABLE compraProductos(
         codigo INT NOT NULL AUTO_INCREMENT,
         total DECIMAL NOT NULL,
-        usuario VARCHAR(25) NOT NULL,   
-        fecha VARCHAR(40) NOT NULL,
+        usuario INT NOT NULL,   
+        fecha DATE NOT NULL,
         cantidadProducto INT NOT NULL,
         PRIMARY KEY(codigo)
         
