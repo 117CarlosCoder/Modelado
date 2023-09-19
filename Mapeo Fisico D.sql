@@ -60,6 +60,7 @@
         precioProducto DECIMAL NOT NULL,
         nombreProducto VARCHAR(40) NOT NULL,
         cantidadProducto INT NOT NULL,
+        subtotal DECIMAL NOT NULL,
         FOREIGN KEY (codigoPedido) REFERENCES pedidos(codigo),
         PRIMARY KEY(codigo)
         
@@ -72,14 +73,32 @@
         fecha DATE NOT NULL,
         detalle VARCHAR(40) NOT NULL,
         estado VARCHAR(40) NOT NULL,
+        FOREIGN KEY (usuario) REFERENCES usuarioTienda(codigo),
         PRIMARY KEY(codigo)
         
+    );
+
+    CREATE TABLE proveedores(
+        codigo INT NOT NULL AUTO_INCREMENT,
+        numero INT NOT NULL,
+        direccion VARCHAR(25) NOT NULL,  
+        PRIMARY KEY(codigo)
+        
+    );
+
+    CREATE TABLE productos(
+        codigo INT NOT NULL AUTO_INCREMENT,
+        nombreProducto VARCHAR(40) NOT NULL,
+        codigoProducto INT NOT NULL,
+        costo DECIMAL NOT NULL,
+        existencias INT NOT NULL,  
+        PRIMARY KEY(codigo)
     );
 
     CREATE TABLE compraProductos(
         codigo INT NOT NULL AUTO_INCREMENT,
         total DECIMAL NOT NULL,
-        usuario INT NOT NULL,   
+        tienda INT NOT NULL,   
         fecha DATE NOT NULL,
         cantidadProducto INT NOT NULL,
         PRIMARY KEY(codigo)
@@ -127,22 +146,7 @@
         
     );
 
-    CREATE TABLE proveedores(
-        codigo INT NOT NULL AUTO_INCREMENT,
-        numero INT NOT NULL,
-        direccion VARCHAR(25) NOT NULL,  
-        PRIMARY KEY(codigo)
-        
-    );
-
-    CREATE TABLE productos(
-        codigo INT NOT NULL AUTO_INCREMENT,
-        nombreProducto VARCHAR(40) NOT NULL,
-        codigoProducto INT NOT NULL,
-        costo DECIMAL NOT NULL,
-        existencias INT NOT NULL,  
-        PRIMARY KEY(codigo)
-    );
+    
 
     CREATE TABLE parametros(
         codigo INT NOT NULL AUTO_INCREMENT,
