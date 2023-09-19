@@ -46,7 +46,7 @@
     CREATE TABLE pedidos(
         codigo INT NOT NULL AUTO_INCREMENT,
         tienda INT NOT NULL,
-        usuario VARCHAR(25) NOT NULL,
+        usuario INT NOT NULL,
         fecha DATE NOT NULL,
         total DECIMAL NOT NULL,
         estado VARCHAR(40) NOT NULL,
@@ -69,7 +69,7 @@
         tienda INT NOT NULL,
         usuario VARCHAR(25) NOT NULL,   
         fecha VARCHAR(40) NOT NULL,
-        solucion VARCHAR(40) NOT NULL,
+        detalle VARCHAR(40) NOT NULL,
         estado VARCHAR(40) NOT NULL,
         PRIMARY KEY(codigo)
         
@@ -96,7 +96,7 @@
     );
 
     CREATE TABLE catalogoTienda(
-        codigo INT NOT NULL,
+        codigo INT NOT NULL AUTO_INCREMENT,
         nombreProducto VARCHAR(40) NOT NULL,
         codigoTienda INT NOT NULL,
         codigoProducto INT NOT NULL,
@@ -119,7 +119,7 @@
     CREATE TABLE devolucion(
         codigo INT NOT NULL AUTO_INCREMENT,
         tienda INT NOT NULL,
-        usuario VARCHAR(25) NOT NULL,
+        usuario INT NOT NULL,
         fecha DATE NOT NULL,
         total DECIMAL NOT NULL,       
         PRIMARY KEY(codigo)
